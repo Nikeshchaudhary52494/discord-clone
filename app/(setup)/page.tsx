@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { initialProfile } from '@/lib/initial-profile';
 import { redirect } from 'next/navigation';
 import { db } from '@/lib/db';
+import OnboardingModal from '@/components/modals/onboarding-modal';
 
 interface setupPageProps { }
 
@@ -21,7 +22,7 @@ const SetupPage: FC<setupPageProps> = async ({ }) => {
         return redirect(`/servers/${server.id}`);
     }
 
-    return <div>Create a server</div>
+    return <OnboardingModal />
 };
 
 export default SetupPage;
