@@ -26,7 +26,6 @@ import {
 
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-// import FileUpload from '../file-upload';
 import { useRouter } from 'next/navigation';
 import FileUpload from './file-upload';
 
@@ -65,7 +64,9 @@ const OnboardingModal: FC<onboardingModalProps> = ({ }) => {
             router.refresh();
             window.location.reload();
             form.reset();
-        } catch (error) { }
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     if (!isMounted) return null;
