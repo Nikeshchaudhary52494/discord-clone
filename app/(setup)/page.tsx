@@ -5,7 +5,6 @@ import { db } from '@/lib/db';
 import OnboardingModal from '@/components/modals/onboarding-modal';
 
 interface setupPageProps { }
-
 const SetupPage: FC<setupPageProps> = async ({ }) => {
     const profile = await initialProfile();
     const server = await db.server.findFirst({

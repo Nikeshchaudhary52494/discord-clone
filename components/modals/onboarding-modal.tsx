@@ -28,6 +28,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 // import FileUpload from '../file-upload';
 import { useRouter } from 'next/navigation';
+import FileUpload from './file-upload';
 
 interface onboardingModalProps { }
 const formSchema = z.object({
@@ -92,17 +93,16 @@ const OnboardingModal: FC<onboardingModalProps> = ({ }) => {
                                     control={form.control}
                                     name="imageUrl"
                                     render={({ field }) => (
-                                        // <FormItem>
-                                        //     <FormControl>
-                                        //         {/* @ts-ignore */}
-                                        //         {/* <FileUpload
-                                        //             endpoint="serverImage"
-                                        //             value={field.value}
-                                        //             onChange={field.onChange}
-                                        //         /> */}
-                                        //     </FormControl>
-                                        // </FormItem>
-                                        <div>TOTO: FileUpload</div>
+                                        <FormItem>
+                                            <FormControl>
+                                                {/* @ts-ignore */}
+                                                <FileUpload
+                                                    endpoint="serverImage"
+                                                    value={field.value}
+                                                    onChange={field.onChange}
+                                                />
+                                            </FormControl>
+                                        </FormItem>
                                     )}
                                 />
                             </div>
