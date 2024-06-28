@@ -95,6 +95,15 @@ const ChatItem: FC<ChatItemProps> = ({
         }
     };
 
+    const isValidUrl = (content: string) => {
+        try {
+            new URL(content);
+            return true;
+        } catch (_) {
+            return false;
+        }
+    };
+
     useEffect(() => {
         form.reset({
             content: content,
@@ -168,11 +177,21 @@ const ChatItem: FC<ChatItemProps> = ({
                         <p
                             className={cn(
                                 'text-sm text-zinc-600 dark:text-zinc-300',
-                                deleted &&
-                                'italic text-zinc-500 dark:text-zinc-400 text-xs mt-1'
+                                deleted && 'italic text-zinc-500 dark:text-zinc-400 text-xs mt-1'
                             )}
                         >
-                            {content}
+                            {isValidUrl(content) ? (
+                                <a
+                                    href={content}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-blue-500 underline"
+                                >
+                                    {content}
+                                </a>
+                            ) : (
+                                content
+                            )}
                             {isUpdate && !deleted && (
                                 <span className="text-[10px] mx-2 text-zinc-500 dark:text-zinc-400">
                                     (edited)
