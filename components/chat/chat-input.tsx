@@ -11,8 +11,8 @@ import { Form, FormControl, FormField, FormItem } from '../ui/form';
 import { Plus } from 'lucide-react';
 import { Input } from '../ui/input';
 import { useModal } from '@/hooks/user-modal-store';
-// import { EmojiPicker } from '../emoji-picker';
 import { useRouter } from 'next/navigation';
+import { EmojiPicker } from '../emoji-picker';
 
 interface ChatInputProps {
     apiUrl: string;
@@ -71,16 +71,16 @@ const ChatInput: FC<ChatInputProps> = ({ apiUrl, name, query, type }) => {
                                     <Input
                                         disabled={isLoading}
                                         className="px-14 py-6 bg-zinc-200/90 dark:bg-zinc-700/75 border-none border-0 focus-visible:ring-0 focus-visible:ring-offset-0 text-zinc-600 dark:text-zinc-200"
-                                        placeholder={`Message ${type !== 'conversation' && '#'
+                                        placeholder={`Message ${type !== 'conversation' ? '#' : ''
                                             } ${name}`}
                                         {...field}
                                     />
                                     <div className="absolute top-7 right-8">
-                                        {/* <EmojiPicker
+                                        <EmojiPicker
                                             onChange={(emoji: string) =>
                                                 field.onChange(`${field.value} ${emoji}`)
                                             }
-                                        /> */}
+                                        />
                                     </div>
                                 </div>
                             </FormControl>

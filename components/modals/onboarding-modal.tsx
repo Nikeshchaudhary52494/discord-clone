@@ -96,13 +96,13 @@ const OnboardingModal: FC<onboardingModalProps> = ({ }) => {
                                     render={({ field }) => (
                                         <FormItem>
                                             <FormControl>
-                                                {/* @ts-ignore */}
                                                 <FileUpload
                                                     endpoint="serverImage"
                                                     value={field.value}
                                                     onChange={field.onChange}
                                                 />
                                             </FormControl>
+                                            <FormMessage/>
                                         </FormItem>
                                     )}
                                 />
@@ -116,7 +116,6 @@ const OnboardingModal: FC<onboardingModalProps> = ({ }) => {
                                             Server name
                                         </FormLabel>
                                         <FormControl>
-                                            {/* @ts-ignore */}
                                             <Input
                                                 disabled={isLoading}
                                                 className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"

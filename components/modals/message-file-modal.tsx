@@ -97,6 +97,7 @@ const MessageFileModal: FC<MessageFileModalProps> = ({ }) => {
                                                     onChange={field.onChange}
                                                 />
                                             </FormControl>
+                                            <FormMessage />
                                         </FormItem>
                                     )}
                                 />
